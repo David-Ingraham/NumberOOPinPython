@@ -1,6 +1,8 @@
 from Number import Number
 
 class Complex(Number):
+
+    __slots__ = ("_imaginary", "_precision")
     def __init__(self, value: float, imaginary: float, precision: int = 2) -> None:
         super().__init__(value)
         self._imaginary = imaginary
@@ -45,15 +47,25 @@ class Complex(Number):
         compelx = float(f'{(self._imaginary * other._imaginary):.{self._precision}f}')
 
         return Complex(real, compelx)
+    
+    def changeFormat(self, newPrescicion: int) -> None:
+        self._precision = newPrescicion
 
 
 
 
 
 
-a = Complex(1.23456, 2.34567, precision=3)
+
+##a = Complex(1.23456, 2.34567, precision=3)
 b = Complex(1,4)
 c= Complex(3,4)
-print(a)  # Example with precision set to 3
-print(a*c)
-print(a+c)
+#print(a)  # Example with precision set to 3
+#print(a*c)
+#print(a+c)
+
+x = Complex(-6, -6)
+
+#print(x._value)
+
+#print(f"{x._value:.{x._precision}f}")
